@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cliente</title>
+  <link rel="stylesheet" href="../delivery/css/style.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<link rel="stylesheet" href="../delivery/js/script.js">
+<link rel="stylesheet" href="../delivery/js/app.ts">
+<html lang="pt-BR">
+</head>
+<body>
+
+<main class="app-workspace">
+
+    <!-- ==================== VERSÃO EXPANDIDA (ESQUERDA) ==================== -->
+    <div class="app-container version-expanded">
+        <!-- Header -->
+        <header class="top-bar">
+            <div class="menu-brand">
+                <span class="menu-icon">☰</span>
+                <span class="brand-text">Entrega<span class="brand-plus">+</span></span>
+            </div>
+            <div class="top-actions">
+                <div class="notification-icon">🔔<span class="notif-badge"></span></div>
+                <img src="https://pravatar.cc" alt="Perfil" class="avatar-top">
+            </div>
+        </header>
+
+        <!-- Saudação -->
+        <section class="welcome-section">
+            <h1>Olá, João! 👋</h1>
+            <p>O que você deseja pedir hoje?</p>
+        </section>
+
+        <!-- Pesquisa -->
+        <div class="search-container">
+            <div class="search-input-wrapper">
+                <span class="search-glass">🔍</span>
+                <input type="text" placeholder="Buscar restaurantes ou pratos...">
+            </div>
+            <button class="filter-btn">🎛️</button>
+        </div>
+
+        <!-- Categorias Expandidas -->
+        <section class="categories-carousel">
+            <div class="category-item">
+                <div class="category-box bg-orange">🍔</div>
+                <span>Hambúrguer</span>
+            </div>
+            <div class="category-item">
+                <div class="category-box bg-red">🍕</div>
+                <span>Pizza</span>
+            </div>
+            <div class="category-item">
+                <div class="category-box bg-blue">🍣</div>
+                <span>Japonesa</span>
+            </div>
+            <div class="category-item">
+                <div class="category-box bg-orange-dark">🍗</div>
+                <span>Frango</span>
+            </div>
+            <div class="category-item">
+                <div class="category-box bg-green">🥗</div>
+                <span>Saudável</span>
+            </div>
+            <div class="category-item">
+                <div class="category-box bg-pink">🍦</div>
+                <span>Sobremesas</span>
+            </div>
+        </section>
+
+        <!-- Card de Pedido -->
+        <section class="order-section">
+            <div class="order-header">
+                <div class="order-title">
+                    <h2>Seu pedido</h2>
+                    <span class="order-id">Pedido #1025</span>
+                </div>
+                <span class="status-badge">Em andamento</span>
+            </div>
+
+            <!-- Linha do Tempo Horizontal -->
+            <div class="timeline-horizontal">
+                <div class="timeline-step done"><div class="step-dot">✓</div><span class="step-text">Confirmado</span></div>
+                <div class="timeline-step done"><div class="step-dot">✓</div><span class="step-text">Preparando</span></div>
+                <div class="timeline-step current"><div class="step-dot">🛵</div><span class="step-text">A caminho</span></div>
+                <div class="timeline-step pending"><div class="step-dot">🏠</div><span class="step-text">Entregue</span></div>
+            </div>
+
+            <!-- Mapa Amplo -->
+            <div class="expanded-map-wrapper">
+                <div class="mock-map">
+                    <svg class="map-route" viewBox="0 0 400 120" preserveAspectRatio="none">
+                        <path d="M40,90 L160,20 L260,70 L350,40" fill="none" stroke="#2563eb" stroke-width="4" stroke-dasharray="4 2"/>
+                    </svg>
+                    <span class="pin home-pin">🏠</span>
+                    <span class="pin courier-pin">🛵</span>
+                </div>
+            </div>
+
+            <!-- Entregador -->
+            <div class="delivery-details-row">
+                <div class="courier-profile">
+                    <img src="https://pravatar.cc" alt="Carlos" class="courier-avatar">
+                    <div class="courier-info">
+                        <h3>Carlos Oliveira</h3>
+                        <p class="courier-sub">Seu entregador</p>
+                        <p class="courier-rating">⭐ 4.9 • 328 entregas</p>
+                    </div>
+                </div>
+                <button class="chat-btn">💬</button>
+            </div>
+
+            <!-- Metadados e Ação -->
+            <div class="order-meta-grid">
+                <div class="meta-box"><span class="meta-label">Tempo estimado</span><span class="meta-value">18 min</span></div>
+                <div class="meta-box"><span class="meta-label">Total</span><span class="meta-value">R$ 48,90</span></div>
+            </div>
+            <button class="btn-action">🔍 Acompanhar pedido</button>
+        </section>
+
+        <!-- Restaurantes Próximos -->
+        <section class="restaurants-section">
+            <div class="section-header"><h2>Restaurantes próximos</h2><a href="#" class="see-all">Ver todos</a></div>
+            <div class="restaurants-horizontal-grid">
+                <div class="res-card">
+                    <img src="https://unsplash.com" alt="Burger">
+                    <div class="res-details"><h4>Burger House</h4><p class="res-rating">⭐ 4.8 • 25-35 min • R$ 5,00</p></div>
+                </div>
+                <div class="res-card">
+                    <img src="https://unsplash.com" alt="Pizza">
+                    <div class="res-details"><h4>Pizza Express</h4><p class="res-rating">⭐ 4.7 • 30-40 min • R$ 4,00</p></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Barra Inferior -->
+        <nav class="bottom-nav">
+            <a href="#" class="nav-item"><span class="nav-icon">🏠</span><span class="nav-label">Início</span></a>
+            <a href="#" class="nav-item"><span class="nav-icon">🔍</span><span class="nav-label">Explorar</span></a>
+            <a href="#" class="nav-item active"><span class="nav-icon">📋</span><span class="nav-label">Meus pedidos</span></a>
+            <a href="#" class="nav-item"><span class="nav-icon">❤️</span><span class="nav-label">Favoritos</span></a>
+            <a href="#" class="nav-item"><span class="nav-icon">👤</span><span class="nav-label">Perfil</span></a>
+        </nav>
+    </div>
+
+
+    <!-- ==================== VERSÃO COMPACTA (DIREITA) ==================== -->
+    <div class="app-container version-compact">
+        <!-- Header -->
+        <header class="top-bar">
+            <div class="menu-brand">
+                <span class="brand-text">Entrega<span class="brand-plus">+</span></span>
+            </div>
+            <div class="top-actions">
+                <div class="notification-icon">🔔</div>
+                <img src="https://pravatar.cc" alt="Perfil" class="avatar-top">
+            </div>
+        </header>
+
+        <!-- Saudação -->
+        <section class="welcome-section">
+            <h1>Olá, João! 👋</h1>
+            <p>O que você deseja pedir hoje?</p>
+        </section>
+
+        <!-- Pesquisa -->
+        <div class="search-container">
+            <div class="search-input-wrapper">
+                <span class="search-glass">🔍</span>
+                <input type="text" placeholder="Buscar...">
+            </div>
+            <button class="filter-btn">🎛️</button>
+        </div>
+
+        <!-- Categorias Reduzidas -->
+        <section class="categories-carousel">
+            <div class="category-item">
+                <div class="category-box bg-orange">🍔</div>
+                <span>Hambúrguer</span>
+            </div>
+            <div class="category-item">
+                <div class="category-box bg-red">🍕</div>
+                <span>Pizza</span>
+            </div>
+            <div class="category-item">
+                <div class="category-box bg-blue">🍣</div>
+                <span>Japonesa</span>
+            </div>
+        </section>
+
+        <!-- Card de Pedido Compactado -->
+        <section class="order-section">
+            <div class="order-header">
+                <div class="order-title">
+                    <h2>Seu pedido</h2>
+                    <span class="order-id">Pedido #1025</span>
+                </div>
+                <span class="status-badge">Em andamento</span>
+            </div>
+
+            <!-- Rastreamento Lado a Lado (Linha do tempo vertical + Mini mapa) -->
+            <div class="tracking-split-container">
+                <div class="timeline-vertical">
+                    <div class="timeline-step done"><div class="step-dot">✓</div><span class="step-text">Confirmado</span></div>
+                    <div class="timeline-step done"><div class="step-dot">✓</div><span class="step-text">Preparando</span></div>
+                    <div class="timeline-step current"><div class="step-dot">🛵</div><span class="step-text">A caminho</span></div>
+                    <div class="timeline-step pending"><div class="step-dot">🏠</div><span class="step-text">Entregue</span></div>
+                </div>
+
+                <div class="compact-map-wrapper">
+                    <div class="mock-map">
+                        <svg class="map-route" viewBox="0 0 100 100">
+                            <path d="M20,20 L50,50 L40,80" fill="none" stroke="#2563eb" stroke-width="4" stroke-dasharray="3 2"/>
+                        </svg>
+                        <span class="pin courier-pin">🛵</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Entregador Empilhado -->
+            <div class="delivery-details-row flex-stacked">
+                <div class="courier-profile">
