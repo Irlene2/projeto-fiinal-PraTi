@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Delivery App</title>
+    <!-- Ícones do Google Material Icons -->
+    <link href="https://googleapis.com" rel="stylesheet">
+    <!-- Vinculação do arquivo CSS externo -->
+    <link rel="stylesheet" href="../delivery/css/login.css.css">
+  
+</head>
+<body>
+
+    <!-- Botão de alternar tema -->
+    <button class="theme-toggle" onclick="toggleTheme()" aria-label="Alternar tema">
+        <span class="material-icons" id="theme-icon">🌙</span>
+    </button>
+
+    <div class="login-container">
+        <!-- Ícone da Logo -->
+        <div class="logo-placeholder">
+            <span class="logo-text">delivery<span class="logo-dot"></span></span>
+        </div>
+
+        <h1>Que bom te ver por aqui!</h1>
+        <p class="subtitle">Faça login para gerenciar seus pedidos.</p>
+
+        <form id="loginForm" novalidate>
+            <div class="input-group">
+                <input type="text" id="emailInput" placeholder="E-mail ou número de celular" required>
+                <div class="error-message" id="emailError"></div>
+            </div>
+
+            <div class="input-group">
+                <input type="password" id="password" placeholder="Digite sua senha" required>
+                <span class="material-icons toggle-password" onclick="togglePasswordVisibility()">visibility_off</span>
+                <div class="error-message" id="passwordError"></div>
+            </div>
+
+            <a href="#" class="forgot-password">Esqueceu sua senha?</a>
+
+            <button type="submit" class="btn-primary" id="submitBtn">
+                <span id="btnText">Entrar</span>
+                <div class="spinner" id="btnSpinner"></div>
+            </button>
+        </form>
+
+        <div class="divider">ou continue com</div>
+
+        <!-- Botões de login social -->
+        <button class="btn-social">
+            <img src="https://img.icons8.com/?size=100&id=17949&format=png&color=000000" alt="Google">
+            Entrar com o Google
+        </button>
+
+        <button class="btn-social">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                <path d="M11.182 0c.165 1.013-.244 2.052-.894 2.807-.643.743-1.688 1.191-2.656 1.111-.192-.998.261-2.062.88-2.774C9.17.391 10.245-.072 11.182 0zm1.758 10.377c-.025 2.122 1.742 3.125 1.776 3.143-.017.054-.277.947-.917 1.879-.553.805-1.127 1.606-2.025 1.622-.884.016-1.168-.52-2.179-.52-1.01 0-1.324.504-2.163.536-.856.031-1.5-.864-2.058-1.664-1.142-1.636-2.013-4.619-.838-6.649.584-1.006 1.62-1.644 2.74-1.66 1.05-.015 1.488.583 2.128.583.639 0 1.132-.614 2.222-.504 1.12.047 2.008.575 2.56 1.385-1.31.782-1.246 2.456.246 3.349z"/>
+            </svg>
+            Entrar com a Apple
+        </button>
+
+        <div class="register-link">
+            Novo por aqui? <a href="#">Criar conta</a>
+        </div>
+    </div>
+
+    <script>
+        // Função para mostrar/esconder a senha usando Material Icons corretos
+        function togglePasswordVisibility() {
+            const passwordInput = document.getElementById('password');
+            const toggleIcon = document.querySelector('.toggle-password');
+            
+            if (passwordInput.type === 'password') {
+                passwordInput.type = 'text';
+                toggleIcon.textContent = '';
+            } else {
+                passwordInput.type = 'password';
+                toggleIcon.textContent = '';
+            }
+        }
+
+        // Função para alternar entre Modo Claro e Escuro via atributo data-theme
+        function toggleTheme() {
+            const htmlElement = document.documentElement;
+            const themeIcon = document.getElementById('theme-icon');
+            const currentTheme = htmlElement.getAttribute('data-theme');
+            
+            if (currentTheme === 'light') {
+                htmlElement.setAttribute('data-theme', 'dark');
+                themeIcon.textContent = '☀️';
+            } else {
+                htmlElement.setAttribute('data-theme', 'light');
+                themeIcon.textContent = '🌙';
+            }
+        }
+
+        // --- VALIDAÇÃO E FEEDBACK VISUAL ---
+        const loginForm = document.getElementById('loginForm');
+        const emailInput = document.getElementById('emailInput');
+        const passwordInput = document.getElementById('password');
+        const emailError = document.getElementById('emailError');
+        const passwordError = document.getElementById('passwordError');
+        const submitBtn = document.getElementById('submitBtn');
+        const btnText = document.getElementById('btnText');
+        const btnSpinner = document.getElementById('btnSpinner');
+
+        function validateEmailOrPhone(value) {
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            const cleanValue = value.replace(/[^0-9]/g, '');
+
+            if (value.trim() === '') {
+                return 'Este campo não pode ficar vazio.';
+            }
+            if (!value.includes('@') && cleanValue.length >= 8) {
+                return '';
+            }
+            if (emailRegex.test(value)) {
+                return '';
+            }
+            return 'Insira um e-mail válido ou número de celular.';
+        }
+
+        function validatePassword(value) {
+            if (value.trim() === '') {
+                return 'A senha não pode ficar vazia.';
+            }
+            if (value.length < 6) {
+                return 'A senha deve conter pelo menos 6 caracteres.';
+            }
+            return '';
+        }
+
+        loginForm.addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            let hasError = false;
+            emailError.textContent = '';
+            passwordError.textContent = '';
+            emailInput.classList.remove('input-error');
+            passwordInput.classList.remove('input-error');
+
+            const emailValidationResult = validateEmailOrPhone(emailInput.value);
+            if (emailValidationResult !== '') {
+                emailError.textContent = emailValidationResult;
+                emailInput.classList.add('input-error');
+                hasError = true;
+            }
+
+            const passwordValidationResult = validatePassword(passwordInput.value);
+            if (passwordValidationResult !== '') {
+                passwordError.textContent = passwordValidationResult;
+                passwordInput.classList.add('input-error');
+                hasError = true;
+            }
+
+            if (!hasError) {
+                submitBtn.disabled = true;
+                btnText.style.display = 'none';
+                btnSpinner.style.display = 'block';
+
+                setTimeout(() => {
+                    alert('Login realizado com sucesso! Redirecionando para o menu...');
+                    submitBtn.disabled = false;
+                    btnText.style.display = 'block';
+                    btnSpinner.style.display = 'none';
+                }, 2000);
+            }
+        });
+
+        emailInput.addEventListener('input', () => {
+            emailError.textContent = '';
+            emailInput.classList.remove('input-error');
+        });
+        passwordInput.addEventListener('input', () => {
+            passwordError.textContent = '';
+            passwordInput.classList.remove('input-error');
+        });
+    </script>
+</body>
+</html>

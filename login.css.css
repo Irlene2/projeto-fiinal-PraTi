@@ -1,0 +1,314 @@
+/* Definições de Tema Base - MODO CLARO */
+:root {
+    --bg-global: #EFECE6;
+    --bg-card: #FFFFFF;
+    --text-primary: #1A1A1A;
+    --text-secondary: #707070;
+    --border-input: #CCCCCC;
+    --bg-input: #FFFFFF;
+    --btn-primary: #EA4D1B;
+    --btn-primary-hover: #d34114;
+    --btn-text: #FFFFFF;
+    --shadow-card: 0px 4px 20px rgba(0, 0, 0, 0.05);
+    --link-color: #EA4D1B;
+}
+
+/* Definições de Tema - MODO ESCURO */
+[data-theme="dark"] {
+    --bg-global: #121212;
+    --bg-card: #1A1A1A;
+    --text-primary: #FFFFFF;
+    --text-secondary: #A0A0A0;
+    --border-input: #333333;
+    --bg-input: #242424;
+    --btn-primary: #EA4D1B;
+    --btn-primary-hover: #d34114;
+    --btn-text: #FFFFFF;
+    --shadow-card: 0px 4px 20px rgba(0, 0, 0, 0.5);
+    --link-color: #EA4D1B;
+}
+
+/* Configurações Globais de Reset */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+body {
+    background-color: var(--bg-global);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+    position: relative;
+    transition: background-color 0.3s ease;
+}
+
+/* Botão Flutuante de Alternar Tema (Canto Superior Direito) */
+.theme-toggle {
+    position: absolute;
+    top: 24px;
+    right: 24px;
+    background: transparent;
+    border: none;
+    color: var(--text-primary);
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.theme-toggle:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+[data-theme="dark"] .theme-toggle:hover {
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+/* Container do Card Principal */
+.login-container {
+    background-color: var(--bg-card);
+    width: 100%;
+    max-width: 440px;
+    padding: 40px 35px;
+    border-radius: 12px;
+    box-shadow: var(--shadow-card);
+    text-align: center;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Estilização Manual do Logo da Imagem */
+.logo-placeholder {
+    margin-bottom: 24px;
+}
+
+.logo-text {
+    font-size: 28px;
+    font-weight: 800;
+    color: #EA4D1B;
+    display: inline-flex;
+    align-items: center;
+    gap: 2px;
+    letter-spacing: -0.5px;
+}
+
+.logo-dot {
+    width: 13px;
+    height: 13px;
+    background-color: #F8B12B;
+    border-radius: 50%;
+    display: inline-block;
+    margin-top: 4px;
+}
+
+/* Cabeçalhos de texto */
+h1 {
+    color: var(--text-primary);
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+.subtitle {
+    color: var(--text-secondary);
+    font-size: 14px;
+    margin-bottom: 28px;
+}
+
+/* Inputs e Grupos */
+.input-group {
+    margin-bottom: 16px;
+    position: relative;
+    text-align: left;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 14px 16px;
+    font-size: 14px;
+    border: 1px solid var(--border-input);
+    background-color: var(--bg-input);
+    color: var(--text-primary);
+    border-radius: 8px;
+    outline: none;
+    transition: border-color 0.2s, background-color 0.3s;
+}
+
+.input-group input:focus {
+    border-color: var(--btn-primary);
+}
+
+/* Campo de Entrada com Erro Crítico de Validação */
+.input-group input.input-error {
+    border-color: #EA4335 !important;
+}
+
+.error-message {
+    color: #EA4335;
+    font-size: 11px;
+    margin-top: 4px;
+    padding-left: 4px;
+    font-weight: 500;
+}
+
+/* Ícone de Visibilidade da Senha */
+.toggle-password {
+    position: absolute;
+    right: 16px;
+    top: 24px;
+    transform: translateY(-50%);
+    color: var(--text-secondary);
+    cursor: pointer;
+    font-size: 18px;
+    user-select: none;
+}
+
+/* Recuperação de Senha */
+.forgot-password {
+    display: block;
+    text-align: right;
+    color: var(--text-secondary);
+    font-size: 12px;
+    text-decoration: none;
+    margin-top: -4px;
+    margin-bottom: 24px;
+}
+
+.forgot-password:hover {
+    text-decoration: underline;
+}
+
+/* Botão de Autenticação Principal */
+.btn-primary {
+    width: 100%;
+    height: 48px;
+    background-color: var(--btn-primary);
+    color: var(--btn-text);
+    border: none;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.2s;
+    margin-bottom: 20px;
+}
+
+.btn-primary:hover:not(:disabled) {
+    background-color: var(--btn-primary-hover);
+}
+
+.btn-primary:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+}
+
+/* Spinner CSS para Estado de Carregamento (Loading) */
+.spinner {
+    display: none;
+    width: 20px;
+    height: 20px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    border-top-color: #ffffff;
+    animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* Divisor de Seções */
+.divider {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: var(--text-secondary);
+    font-size: 12px;
+    margin-bottom: 20px;
+}
+
+.divider::before, .divider::after {
+    content: '';
+    flex: 1;
+    border-bottom: 1px solid var(--border-input);
+}
+
+.divider:not(:empty)::before { margin-right: .7em; }
+.divider:not(:empty)::after { margin-left: .7em; }
+
+/* Botões de Provedores Sociais */
+.btn-social {
+    width: 100%;
+    padding: 12px;
+    background-color: transparent;
+    border: 1px solid var(--border-input);
+    color: var(--text-primary);
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    cursor: pointer;
+    margin-bottom: 12px;
+    transition: background-color 0.2s, border-color 0.2s;
+}
+
+.btn-social img {
+    width: 16px;
+    height: 16px;
+    object-fit: contain;
+}
+
+.btn-social:hover {
+    background-color: rgba(0, 0, 0, 0.02);
+}
+
+[data-theme="dark"] .btn-social:hover {
+    background-color: rgba(255, 255, 255, 0.04);
+}
+
+/* Rodapé / Link de Registro */
+.register-link {
+    color: var(--text-secondary);
+    font-size: 14px;
+    margin-top: 24px;
+}
+
+.register-link a {
+    color: var(--link-color);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.register-link a:hover {
+    text-decoration: underline;
+}
+
+/* Responsividade Adaptativa */
+@media (max-width: 440px) {
+    .login-container {
+        border-radius: 0;
+        box-shadow: none;
+        padding: 30px 20px;
+        max-width: 100%;
+    }
+    body {
+        background-color: var(--bg-card); /* Remove a borda externa no mobile para preencher a tela */
+    }
+    .theme-toggle {
+        top: 16px;
+        right: 16px;
+    }
+}
