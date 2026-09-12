@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Cardápio online Aki Lanches">
+  <title>Aki - Delivery | Cardápio</title>
+
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,400,0,0" rel="stylesheet">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar__top">
+        <a class="brand" href="cardapio.html" aria-label="Aki- Delivery">
+            <small><img src="../../assets/logo2d-.png" alt="Aki Delivery" width="100"></small>
+          </span>
+        </a>
+      </div>
+
+      <nav class="sidebar__nav" aria-label="Menu principal">
+        <a class="nav-item active" href="cardapio.html">
+          <span class="material-symbols-outlined">restaurant_menu</span>
+          <span>Cardápio</span>
+        </a>
+        <a class="nav-item" href="#categorias">
+          <span class="material-symbols-outlined">category</span>
+          <span>Categorias</span>
+        </a>
+        <a class="nav-item" href="#carrinho">
+          <span class="material-symbols-outlined">shopping_cart</span>
+          <span>Meu carrinho</span>
+          <b class="nav-badge" id="sidebarCartCount">0</b>
+        </a>
+      </nav>
+
+      <div class="sidebar__bottom">
+        <button class="nav-item nav-button" id="themeToggle" type="button">
+          <span class="material-symbols-outlined" id="themeIcon">dark_mode</span>
+          <span>Modo escuro</span>
+        </button>
+      </div>
+    </aside>
+
+    <main class="main-content">
+      <header class="mobile-header">
+        <a class="brand" href="cardapio.html">
+          <span class="brand__mark">+</span>
+          <span>
+            <strong>Aki</strong>
+            <small>Lanches</small>
+          </span>
+        </a>
+        <button class="icon-button" id="openSidebar" type="button" aria-label="Abrir menu">
+          <span class="material-symbols-outlined">menu</span>
+        </button>
+      </header>
+
+      <div class="mobile-overlay" id="mobileOverlay"></div>
+
+      <section class="page-header">
+        <div>
+          <span class="eyebrow">Peça pelo Aki</span>
+          <h1>Nosso cardápio</h1>
+          <p>Escolha seus lanches favoritos e monte seu pedido.</p>
+        </div>
+        <button class="cart-button" id="openCartTop" type="button">
+          <span class="material-symbols-outlined">shopping_cart</span>
+          <span>Meu carrinho</span>
+          <b id="topCartCount">0</b>
+        </button>
+      </section>
+
+      <section class="hero-card">
+        <div>
+          <span class="hero-label">Fome de quê?</span>
+          <h2>Seu lanche favorito está aqui.</h2>
+          <p>Hambúrgueres, combos, porções, bebidas e sobremesas preparados com muito sabor.</p>
+        </div>
+        <span class="material-symbols-outlined hero-icon">lunch_dining</span>
+      </section>
+
+      <section class="filters-panel" id="categorias">
+        <div class="search-box">
+          <span class="material-symbols-outlined">search</span>
+          <input type="search" id="searchInput" placeholder="Buscar no cardápio..." autocomplete="off">
+        </div>
+
+        <label class="select-box">
+          <span class="material-symbols-outlined">filter_list</span>
+          <select id="categoryFilter">
+            <option value="todos">Todas as categorias</option>
+            <option value="hamburgueres-tradicionais">Hambúrgueres tradicionais</option>
+            <option value="hamburgueres-artesanais">Hambúrgueres artesanais</option>
+            <option value="cachorros-quentes">Cachorros-quentes</option>
+            <option value="combos">Combos</option>
+            <option value="porcoes">Porções</option>
+            <option value="bebidas">Bebidas</option>
+            <option value="sobremesas">Sobremesas</option>
+          </select>
+        </label>
+      </section>
+
+      <div class="result-message" id="resultMessage"></div>
+      <section class="menu-content" id="menuContent"></section>
+
+      <section class="empty-state hidden" id="emptyState">
+        <span class="material-symbols-outlined">search_off</span>
+        <h2>Nenhum item encontrado</h2>
+        <p>Tente buscar outro nome ou selecionar outra categoria.</p>
+      </section>
+    </main>
+  </div>
+
+  <div class="floating-cart" id="floatingCart">
+    <div>
+      <span class="material-symbols-outlined">shopping_bag</span>
+      <div>
+        <strong><span id="floatingCartCount">0</span> item(ns)</strong>
+        <small>Total: R$ <span id="floatingCartTotal">0,00</span></small>
+      </div>
+    </div>
+    <button type="button" id="openFloatingCart">Ver carrinho</button>
+  </div>
+
+  <div class="modal-backdrop hidden" id="productModal">
+    <div class="modal product-modal" role="dialog" aria-modal="true" aria-labelledby="modalProductName">
+      <button class="modal-close" id="modalClose" type="button" aria-label="Fechar">
+        <span class="material-symbols-outlined">close</span>
+      </button>
+
+      <div class="modal-product-image" id="modalProductImage">
+        <span class="material-symbols-outlined">lunch_dining</span>
+      </div>
+
+      <div class="modal-content">
+        <span class="product-tag" id="modalProductCategory"></span>
+        <h2 id="modalProductName"></h2>
+        <p id="modalProductDescription"></p>
+        <strong class="modal-price">R$ <span id="modalProductPrice"></span></strong>
+
+        <label class="observation-label" for="productObservation">Observação do pedido</label>
+        <textarea id="productObservation" rows="3" placeholder="Ex.: sem cebola, molho à parte..."></textarea>
+
+        <div class="quantity-row">
+          <span>Quantidade</span>
+          <div class="quantity-control">
+            <button type="button" id="decreaseQuantity" aria-label="Diminuir quantidade">−</button>
+            <strong id="quantityValue">1</strong>
+            <button type="button" id="increaseQuantity" aria-label="Aumentar quantidade">+</button>
+          </div>
+        </div>
+
+        <div class="modal-actions">
+          <button class="btn btn-secondary" id="cancelProduct" type="button">Cancelar</button>
+          <button class="btn btn-primary" id="addProductToCart" type="button">
+            Adicionar • R$ <span id="modalTotal">0,00</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal-backdrop hidden" id="cartModal">
+    <div class="modal cart-modal" role="dialog" aria-modal="true" aria-labelledby="cartTitle">
+      <button class="modal-close" id="closeCartModal" type="button" aria-label="Fechar">
+        <span class="material-symbols-outlined">close</span>
+      </button>
+
+      <div class="modal-content">
+        <span class="eyebrow">Seu pedido</span>
+        <h2 id="cartTitle">Meu carrinho</h2>
+        <div id="cartItems" class="cart-items"></div>
+
+        <div class="cart-summary">
+          <span>Total do pedido</span>
+          <strong>R$ <span id="cartTotal">0,00</span></strong>
+        </div>
+
+        <button class="btn btn-primary btn-full" id="finishOrder" type="button">
+          Continuar pedido
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="toast hidden" id="toast"></div>
+
+  <script src="../js/data.js"></script>
+  <script src="../js/cardapio.js"></script>
+</body>
+</html>
