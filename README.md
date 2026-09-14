@@ -1,4 +1,4 @@
-# AKI - Delivery+
+# AKI - Delivery
 
 Frontend base do app de pedidos e entregas.
 
