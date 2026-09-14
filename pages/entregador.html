@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Delivery+ - Painel do entregador">
+    <title>AKI - Delivery | Entregador</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+
+    <div class="app-layout">
+
+        <!-- =========================
+             MENU LATERAL
+        ========================== -->
+        <aside class="sidebar" id="sidebar">
+
+            <!-- LOGO -->
+            <div class="sidebar-logo">
+                
+                <span><img src="../assets/logo.png" alt="logo" width="100"> </span>
+            </div>
+
+            <!-- MENU -->
+            <nav
+                class="sidebar-menu"
+                aria-label="Menu do entregador"
+            >
+
+                <!-- INÍCIO -->
+                <a
+                    href="#inicio"
+                    class="menu-item active"
+                    title="Início"
+                >
+                    <span class="menu-icon">⌂</span>
+                    <span>Início</span>
+                </a>
+
+                <!-- ENTREGAS -->
+                <a
+                    href="#pedido"
+                    class="menu-item"
+                    title="Entregas"
+                >
+                    <span class="menu-icon">🛵</span>
+                    <span>Entregas</span>
+                </a>
+
+                <!-- GANHOS -->
+                <a
+                    href="#ganhos"
+                    class="menu-item"
+                    title="Ganhos"
+                >
+                    <span class="menu-icon">💰</span>
+                    <span>Ganhos</span>
+                </a>
+
+                <!-- HISTÓRICO -->
+                <a
+                    href="#historico"
+                    class="menu-item"
+                    title="Histórico"
+                >
+                    <span class="menu-icon">🕐</span>
+                    <span>Histórico</span>
+                </a>
+
+                <!-- PERFIL -->
+                <a
+                    href="#perfil"
+                    class="menu-item"
+                    title="Perfil"
+                >
+                    <span class="menu-icon">⚙️</span>
+                    <span>Perfil</span>
+                </a>
+
+            </nav>
+
+            <!-- RODAPÉ DO MENU -->
+            <div class="sidebar-footer">
+
+                <div class="user-mini">
+
+                    <div class="avatar">
+                        CO
+                    </div>
+
+                    <div>
+                        <strong>Entregador</strong>
+                        <small>Online</small>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </aside>
+
+
+        <!-- =========================
+             CONTEÚDO PRINCIPAL
+        ========================== -->
+        <main class="main-content" id="inicio">
+
+            <!-- CABEÇALHO -->
+            <header class="content-header">
+
+                <button
+                    class="mobile-menu"
+                    id="mobileMenu"
+                    type="button"
+                    aria-label="Abrir menu"
+                >
+                    ☰
+                </button>
+
+                <div>
+                    <span class="breadcrumb">
+                        Área do entregador
+                    </span>
+
+                    <h1>
+                        Olá, entregador! 👋
+                    </h1>
+                </div>
+
+                <button
+                    class="theme-toggle"
+                    data-theme-toggle
+                    type="button"
+                    aria-label="Alternar tema"
+                >
+                    🌙
+                </button>
+
+            </header>
+
+
+            <!-- =========================
+                 PEDIDO ATUAL
+            ========================== -->
+            <section id="pedido">
+
+                <div class="delivery-status">
+
+                    <span class="status delivery">
+                        🟢 Disponível
+                    </span>
+
+                    <span>
+                        Você está disponível para novos pedidos
+                    </span>
+
+                </div>
+
+
+                <div class="delivery-layout">
+
+                    <!-- CARD DO PEDIDO -->
+                    <section class="panel delivery-order">
+
+                        <div class="order-top">
+
+                            <div>
+                                <span class="panel-label">
+                                    Pedido atual
+                                </span>
+
+                                <h2>
+                                    Pedido #1024
+                                </h2>
+                            </div>
+
+                            <span class="status preparing">
+                                Aguardando
+                            </span>
+
+                        </div>
+
+
+                        <!-- CLIENTE -->
+                        <div class="customer-info">
+
+                            <div class="customer-avatar">
+                                JS
+                            </div>
+
+                            <div>
+                                <span>Cliente</span>
+                                <strong>João Silva</strong>
+                                <p>📞 (21) 99999-9999</p>
+                            </div>
+
+                        </div>
+
+
+                        <!-- ENDEREÇO -->
+                        <div class="address-box">
+
+                            <span>📍</span>
+
+                            <div>
+                                <span>Endereço de entrega</span>
+                                <strong>Rua Exemplo, 123</strong>
+                                <p>Centro - Nilópolis/RJ</p>
+                            </div>
+
+                        </div>
+
+
+                        <!-- TEMPO DE ESPERA -->
+                        <div class="waiting-time">
+
+                            <span>⏱️</span>
+
+                            <div>
+                                <span>Tempo de espera</span>
+                                <strong>08:32 min</strong>
+                            </div>
+
+                        </div>
+
+
+                        <!-- PRODUTOS -->
+                        <div class="order-products">
+
+                            <h3>
+                                Produtos do pedido
+                            </h3>
+
+                            <div class="order-product">
+                                <span>1x Produto A</span>
+                                <strong>R$ 25,00</strong>
+                            </div>
+
+                            <div class="order-product">
+                                <span>2x Produto B</span>
+                                <strong>R$ 40,00</strong>
+                            </div>
+
+                            <div class="order-product">
+                                <span>1x Produto C</span>
+                                <strong>R$ 8,00</strong>
+                            </div>
+
+                            <div class="order-total">
+                                <span>Total</span>
+                                <strong>R$ 73,00</strong>
+                            </div>
+
+                        </div>
+
+
+                        <!-- AÇÕES -->
+                        <div class="delivery-actions">
+
+                            <button
+                                class="btn btn-primary"
+                                id="acceptOrder"
+                                type="button"
+                            >
+                                🟢 Aceitar pedido
+                            </button>
+
+                            <button
+                                class="btn btn-secondary"
+                                id="startDelivery"
+                                type="button"
+                            >
+                                🚚 Iniciar entrega
+                            </button>
+
+                            <button
+                                class="btn btn-secondary"
+                                id="openLocation"
+                                type="button"
+                            >
+                                📍 Abrir localização
+                            </button>
+
+                            <button
+                                class="btn btn-success"
+                                id="finishDelivery"
+                                type="button"
+                            >
+                                ✅ Finalizar entrega
+                            </button>
+
+                        </div>
+
+                    </section>
+
+
+                    <!-- MAPA -->
+                    <aside class="panel map-panel">
+
+                        <div class="panel-header">
+
+                            <div>
+                                <span class="panel-label">
+                                    Localização
+                                </span>
+
+                                <h2>
+                                    Rota da entrega
+                                </h2>
+                            </div>
+
+                        </div>
+
+
+                        <div
+                            class="fake-map"
+                            aria-label="Mapa ilustrativo da entrega"
+                        >
+
+                            <div class="map-road road-one"></div>
+                            <div class="map-road road-two"></div>
+
+                            <div class="map-marker customer">
+                                📍
+                            </div>
+
+                            <div class="map-marker driver">
+                                🛵
+                            </div>
+
+                        </div>
+
+                    </aside>
+
+                </div>
+
+            </section>
+
+
+            <!-- =========================
+                 GANHOS
+            ========================== -->
+            <section
+                class="panel section-panel"
+                id="ganhos"
+            >
+
+                <div class="panel-header">
+
+                    <div>
+                        <span class="panel-label">
+                            Financeiro
+                        </span>
+
+                        <h2>
+                            Ganhos
+                        </h2>
+                    </div>
+
+                </div>
+
+
+                <div class="product-grid">
+
+                    <article class="product-card">
+
+                        <div class="product-image">
+                            🛵
+                        </div>
+
+                        <h3>
+                            Entregas realizadas
+                        </h3>
+
+                        <p>
+                            Total de entregas hoje
+                        </p>
+
+                        <strong>
+                            12 entregas
+                        </strong>
+
+                    </article>
+
+
+                    <article class="product-card">
+
+                        <div class="product-image">
+                            💰
+                        </div>
+
+                        <h3>
+                            Ganhos de hoje
+                        </h3>
+
+                        <p>
+                            Valor acumulado
+                        </p>
+
+                        <strong>
+                            R$ 186,40
+                        </strong>
+
+                    </article>
+
+
+                    <article class="product-card">
+
+                        <div class="product-image">
+                            ⭐
+                        </div>
+
+                        <h3>
+                            Avaliação
+                        </h3>
+
+                        <p>
+                            Sua avaliação média
+                        </p>
+
+                        <strong>
+                            4.9
+                        </strong>
+
+                    </article>
+
+                </div>
+
+            </section>
+
+
+            <!-- =========================
+                 HISTÓRICO
+            ========================== -->
+            <section
+                class="panel section-panel"
+                id="historico"
+            >
+
+                <div class="panel-header">
+
+                    <div>
+                        <span class="panel-label">
+                            Entregas
+                        </span>
+
+                        <h2>
+                            Histórico
+                        </h2>
+                    </div>
+
+                </div>
+
+
+                <div class="history-list">
+
+                    <div class="history-item">
+                        <strong>#1023</strong>
+                        <span>Maria Souza</span>
+                        <span class="status completed">
+                            Concluído
+                        </span>
+                    </div>
+
+                    <div class="history-item">
+                        <strong>#1022</strong>
+                        <span>Carlos Santos</span>
+                        <span class="status completed">
+                            Concluído
+                        </span>
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- =========================
+                 PERFIL
+            ========================== -->
+            <section
+                class="panel section-panel"
+                id="perfil"
+            >
+
+                <div class="panel-header">
+
+                    <div>
+                        <span class="panel-label">
+                            Minha conta
+                        </span>
+
+                        <h2>
+                            Perfil
+                        </h2>
+                    </div>
+
+                </div>
+
+
+                <div class="customer-info">
+
+                    <div class="customer-avatar">
+                        CO
+                    </div>
+
+                    <div>
+                        <span>Entregador</span>
+                        <strong>Carlos Oliveira</strong>
+                        <p>Entregador parceiro · Online</p>
+                    </div>
+
+                </div>
+
+            </section>
+
+        </main>
+
+    </div>
+
+
+    <!-- SCRIPTS ORIGINAIS -->
+    <script src="../js/tema.js"></script>
+    <script src="../js/menu.js"></script>
+    <script src="../js/entregador.js"></script>
+    <script src="../js/app.js"></script>
+
+</body>
+
+</html>
